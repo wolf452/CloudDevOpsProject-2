@@ -8,6 +8,8 @@ This project contains an **Ansible Playbook** to install and configure the follo
 - **Java OpenJDK 17**
 - **PostgreSQL** (for SonarQube)
 - **Other dependencies** such as package updates and permission setups
+- **Prometheus**
+- **Grafana**
 ## Ansible Structure
 
 ```.
