@@ -1,0 +1,11 @@
+- name: Configure Ubuntu EC2 Instance
+  hosts: slave
+  become: true
+  roles:
+     - git
+     - docker
+     - java
+     - jenkins
+     - sonarqube
+     - Kubernetes
+     - dependance
