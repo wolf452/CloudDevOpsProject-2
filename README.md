@@ -44,13 +44,13 @@ Additionally, it incorporates monitoring and observability using Prometheus for 
 
 ### Task
 
-Develop Ansible playbooks for EC2 instance configuration:
-Install required packages (Git, Docker, Java).
-Install packages for Jenkins and SonarQube.
-Install and configure Prometheus for monitoring.
-Install and configure Grafana for data visualization.
-Set up necessary environment variables.
-Use Ansible roles for modular and reusable automation.
+- Develop Ansible playbooks for EC2 instance configuration:
+- Install required packages (Git, Docker, Java).
+- Install packages for Jenkins and SonarQube.
+- Install and configure Prometheus for monitoring.
+- Install and configure Grafana for data visualization.
+- Set up necessary environment variables.
+- Use Ansible roles for modular and reusable automation.
 
 
 ---
