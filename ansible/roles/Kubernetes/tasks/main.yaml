@@ -1,0 +1,41 @@
+- name: Start and enable Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Install kubectl
+  become: true
+  get_url:
+    url: "https://dl.k8s.io/release/v1.27.0/bin/linux/amd64/kubectl"
+    dest: /usr/local/bin/kubectl
+    mode: '0755'
+  when: ansible_facts.packages['kubectl'] is not defined
+
+- name: Verify kubectl installation
+  command: kubectl version --client
+  register: kubectl_version
+  changed_when: false
+  failed_when: kubectl_version.rc != 0
+
+- name: Display kubectl version
+  debug:
+    msg: "kubectl version: {{ kubectl_version.stdout }}"
+
+- name: Download Kind binary
+  become: true
+  get_url:
+    url: "https://github.com/kubernetes-sigs/kind/releases/download/v0.19.0/kind-linux-amd64"
+    dest: /usr/local/bin/kind
+    mode: '0755'
+
+- name: Verify Kind installation
+  command: kind --version
+  register: kind_version
+  changed_when: false
+  failed_when: kind_version.rc != 0
+
+- name: Display Kind version
+  debug:
+    msg: "Kind version: {{ kind_version.stdout }}"
+
