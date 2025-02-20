@@ -1,0 +1,53 @@
+@Library('shared-library') _
+
+pipeline {
+    agent any
+
+    environment {
+        TERRAFORM_DIR = 'terraform'
+        BACKEND_DIR = 'terraform'
+        ANSIBLE_DIR = 'ansible'
+        INVENTORY_FILE = 'inventory'
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
+        AWS_REGION = 'us-east-1'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/wolf452/CloudDevOpsProject.git'
+            }
+        }
+
+        stage('Terraform Init') {
+            steps {
+                terraformInit()
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                terraformPlan()
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                terraformApply()
+            }
+        }
+
+        stage('Delay Before Ansible Playbook') {
+            steps {
+                delayBeforeAnsible()
+            }
+        }
+
+        stage('Run Ansible') {
+            steps {
+                runAnsible()
+            }
+        }
+    }
+}
