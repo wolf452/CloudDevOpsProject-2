@@ -173,8 +173,24 @@ ansible-playbook -i inventory playbook
 
 ![6-install](https://github.com/user-attachments/assets/ca23699b-149c-41ad-a31d-4f4e21ea47ca)
 
+![run-ansible](https://github.com/user-attachments/assets/90ae2dab-224c-4c8a-a190-efb600ab6605)
+
+![run-ansible](https://github.com/user-attachments/assets/20766d75-8dd9-4268-992f-9fa651ad3592)
+
 ![7-install](https://github.com/user-attachments/assets/98db3fd0-bc2c-4d72-80b7-b0f8b9b40011)
 
+
+### configuration prometheus
+![target](https://github.com/user-attachments/assets/12a2b566-bd77-4d73-a0f0-e2db76202a8e)
+![alerting](https://github.com/user-attachments/assets/040333fa-ddbb-4f85-929f-f3fa0dc6ca69)
+![alerting2](https://github.com/user-attachments/assets/fcfd20b9-bc63-4cc8-a33b-22c951f0a536)
+![rules](https://github.com/user-attachments/assets/af0a3151-171f-4fc5-8daf-dfbe3dc0551c)
+
+
+### configuration prometheus
+![urel_prom](https://github.com/user-attachments/assets/5e4f4538-10a5-439a-bab9-bfe50385f045)
+![welcome](https://github.com/user-attachments/assets/104395e2-5dc9-4fc5-865d-96691e7bcd7e)
+![load](https://github.com/user-attachments/assets/a0bf56da-2034-4bdd-af90-a0ac4d1a9c3b)
 
 
 The playbook will perform the following tasks:
