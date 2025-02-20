@@ -1,0 +1,80 @@
+@Library('my-shared-library') _  
+
+pipeline {
+    agent { label 'jenkins-slave' }
+
+    environment {
+        DOCKER_IMAGE = 'docker.io/ahmedmaher08/project'
+        DEPLOYMENT_YAML = 'deployment.yaml'
+        FINAL_PROJECT_DIR = 'FinalProjectCode-main'  
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo "Cloning the source code from GitHub"
+               
+                git url: 'https://github.com/wolf452/CloudDevOpsProject.git', branch: 'main'
+            }
+        }
+
+        stage('Unit Test') {
+            steps {
+                dir(FINAL_PROJECT_DIR) { 
+                    unitTestStage()  
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir(FINAL_PROJECT_DIR) {  
+                    buildStage()  
+                }
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                dir(FINAL_PROJECT_DIR) {  
+                    sonarQubeStage()  
+                }
+            }
+        }
+
+        stage('Login to Docker Hub') {
+            steps {
+                dockerLoginStage()  
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                dir(FINAL_PROJECT_DIR) {  
+                    dockerBuildStage()  
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                dockerPushStage()  
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                deployStage('/home/ubuntu/jenkins/.kube/config', 'FinalProjectCode-main/deployment.yaml') 
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline executed successfully."
+        }
+        failure {
+            echo "Pipeline failed. Please check the logs for details."
+        }
+    }
+}
