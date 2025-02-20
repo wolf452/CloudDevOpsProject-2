@@ -11,38 +11,8 @@ This project contains an **Ansible Playbook** to install and configure the follo
 ## Ansible Structure
 
 ```.
-├── ahmed.pem
-├── inventory
-├── playbook.yml
-└── roles
-    ├── common
-    │   └── tasks
-    │       └── main.yml
-    ├── dependance
-    │   └── tasks
-    │       └── main.yaml
-    ├── docker
-    │   └── tasks
-    │       └── main.yml
-    ├── git
-    │   └── tasks
-    │       └── main.yml
-    ├── java
-    │   └── tasks
-    │       └── main.yml
-    ├── jenkins
-    │   └── tasks
-    │       └── main.yml
-    ├── Kubernetes
-    │   └── tasks
-    │       └── main.yaml
-    └── sonarqube
-        ├── handlers
-        │   └── main.yml
-        ├── tasks
-        │   └── main.yaml
-        └── vars
-            └── main.yml
+![ansible](https://github.com/user-attachments/assets/69d6767c-4184-4c54-b4e7-180bf4ea60d0)
+
 ```
 
 
@@ -59,6 +29,8 @@ This project contains an **Ansible Playbook** to install and configure the follo
   - **Java OpenJDK 17**
   - **Jenkins**
   - **SonarQube**
+  - **Prometheus**
+  - **Grafana**
 
 ## Setup Steps
 
