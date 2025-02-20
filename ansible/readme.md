@@ -1,4 +1,4 @@
- # Ansible Playbook for Setting Up Kubernetes, Docker, Jenkins, SonarQube, and Dependencies
+ # Ansible Playbook for Setting Up Kubernetes, Docker, Jenkins, SonarQube, Prometheus, Grafana & Dependencies
 
 This project contains an **Ansible Playbook** to install and configure the following tools on **Ubuntu EC2 Instances**:
 - **Kubernetes** (kubectl, kind)
