@@ -7,7 +7,8 @@ The CloudDevOpsProject is a comprehensive DevOps project that demonstrates skill
 Additionally, it incorporates monitoring and observability using Prometheus for metrics collection and Grafana for data visualization. These tools provide real-time insights into application performance, resource usage, and system health, ensuring a reliable and scalable deployment.
 
 ---
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/25f2c383-9501-40d7-a783-2449774ce340)
+
 
 
 
