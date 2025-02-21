@@ -6,6 +6,7 @@
       loop:
         - { name: prometheus }
         - { name: node_exporter }
+        - { name: cadvisor }
         - { name: alertmanager }
 
     - name: Create configuration directories
@@ -159,3 +160,14 @@
         name: node_exporter
         state: started
         enabled: yes
+
+    # Install and Configure cAdvisor
+    - name: Download and run cAdvisor
+      command: >
+        docker run -d --name=cadvisor --restart=always \
+        --volume=/var/lib/docker:/var/lib/docker:ro \
+        --volume=/sys:/sys:ro \
+        --volume=/var/run:/var/run:ro \
+        --volume=/:/rootfs:ro \
+        -p 8080:8080 \
+        gcr.io/cadvisor/cadvisor:v0.47.2
